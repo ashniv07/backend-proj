@@ -10,7 +10,7 @@ phases:
       - npm install
   build:
     commands:
-      - zip -r deployment.zip src package.json appspec.yml node_modules
+      - zip -r deployment.zip src package.json appspec.yaml node_modules
   post_build:
     commands:
       - aws s3 cp deployment.zip s3://artifact-buc-ash/deployment.zip
