@@ -10,10 +10,10 @@ phases:
       - npm install
   build:
     commands:
-      - zip -r deployment.zip src package.json appspec.yaml node_modules
+      - zip -r new-deployment.zip src package.json appspec.yaml node_modules  # Change zip name here
   post_build:
     commands:
-      - aws s3 cp deployment1.zip s3://artifact-buc-ash/deployment1.zip
+      - aws s3 cp new-deployment.zip s3://artifact-buc-ash/new-deployment.zip  # Change zip name here as well
 artifacts:
   files:
-    - deployment1.zip
+    - new-deployment.zip  # Update artifact name here as well
