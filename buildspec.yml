@@ -10,10 +10,14 @@ phases:
       - npm install
   build:
     commands:
-      - zip -r deploy1.zip src package.json appspec.yaml node_modules  # Use deploy1.zip as the name
+      - zip -r deploy1.zip appspec.yaml src package.json node_modules  # Ensure appspec.yaml is included
   post_build:
     commands:
-      - aws s3 cp deploy1.zip s3://artifact-buc-ash/deploy1.zip  # Use deploy1.zip here as well
+      - aws s3 cp deploy1.zip s3://artifact-buc-ash/deploy1.zip  # Upload deploy1.zip to S3
 artifacts:
   files:
-    - deploy1.zip  # Update artifact name to deploy1.zip
+    - deploy1.zip
+    - appspec.yaml  # Ensure appspec.yaml is explicitly included
+    - src/**  # Include all source files
+    - package.json
+    - node_modules/**  # Ensure all dependencies are included
