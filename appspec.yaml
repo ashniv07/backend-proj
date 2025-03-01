@@ -1,0 +1,9 @@
+version: 0.0
+Resources:
+  - TargetService:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: "app-backend-a"
+        Alias: "live"
+        CurrentVersion: "1"  # Current alias version
+        TargetVersion: "2"   # The new version you're deploying to

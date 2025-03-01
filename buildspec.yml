@@ -1,5 +1,7 @@
- 
 version: 0.2
+cache:
+  paths:
+    - '/root/.npm/**/*'  # Cache npm dependencies
 phases:
   install:
     runtime-versions:
@@ -8,7 +10,7 @@ phases:
       - npm install
   build:
     commands:
-      - powershell Compress-Archive -Path src,package.json,appspec.yml,node_modules -DestinationPath deployment.zip
+      - zip -r deployment.zip src package.json appspec.yml node_modules
   post_build:
     commands:
       - aws s3 cp deployment.zip s3://artifact-buc-ash/deployment.zip
