@@ -5,7 +5,7 @@ import { DynamoDBDocumentClient, ScanCommand } from "@aws-sdk/lib-dynamodb";
 // Set AWS Region (Mumbai)
 const client = new DynamoDBClient({ region: "ap-south-1" });
 const dynamoDB = DynamoDBDocumentClient.from(client);
-const TABLE_NAME = "Products"; // Replace with your actual DynamoDB table name
+const TABLE_NAME = "Products"; 
 
 export const handler = async (event) => {
     try {
