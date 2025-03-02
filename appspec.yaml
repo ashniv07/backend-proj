@@ -5,5 +5,5 @@ Resources:
       Properties:
         Name: "app-backend-a"
         Alias: "live"
-        CurrentVersion: "5"  # Current alias version
-        TargetVersion: "6"   # The new version you're deploying to
+        CurrentVersion: "6"  # Current alias version
+        TargetVersion: "5"   # The new version you're deploying to
